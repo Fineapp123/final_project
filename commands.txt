@@ -1,0 +1,26 @@
+
+docker-compose run --rm app bash -c "django-admin startproject app." 
+docker-compose run --rm app bash -c "python manage.py startapp final" 
+docker-compose run --rm app bash -c "python manage.py makemigrations" 
+docker-compose run --rm app bash -c "python manage.py migrate" 
+docker-compose run --rm app bash -c "python manage.py createsuperuser"
+docker-compose build
+docker-compose up -d
+django/ MgaComp123!
+https://www.youtube.com/watch?v=mScd-Pc_pX0 https://www.youtube.com/watch?v=3_ZJW1f25bY&t=4133s letsencrypt
+#run the following command to generate the first SSH certificate: docker-compose -f docker-compose-deploy.yml run --rm certbot /opt/certify-init.sh
+# stop service
+docker-compose -f docker-compose-deploy.yml down
+# start service
+docker-compose -f docker-compose-deploy.yml up
+# To renew certificate
+docker-compose -f docker-compose-deploy.yml run --rm certbot sh -c "certbot renew"
+#deploy command
+#clean
+docker-compose -f docker-compose-deploy.yml down --volumes
+# build image
+docker-compose -f docker-compose-deploy.yml build
+# run
+docker-compose -f docker-compose-deploy.yml up
+# create superuser
+docker-compose -f docker-compose-deploy.yml run --rm app bash -c "python manage.py createsuperuser"
