@@ -27,7 +27,7 @@ class BookView(View):
 
         return HttpResponse(template.render(context, request))
     
-
+ 
 class BranchView(View):
     def get(self, request):
         template = loader.get_template('final/branches.html')
